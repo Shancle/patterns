@@ -11,23 +11,27 @@ namespace State
     {
         public virtual void PutMoney(CopyMachine copyMachine)
         {
-            throw new InvalidOperationException("Слишком много денег");
+            copyMachine.State = new ErrorState();
         }
 
         public virtual void ChooseDevice(CopyMachine copyMachine)
         {
-            throw new InvalidOperationException("Не время выбирать девайс");
+            copyMachine.State = new ErrorState();
+        }
+
+        public virtual void ChooseDocument(CopyMachine copyMachine)
+        {
+            copyMachine.State = new ErrorState();
         }
 
         public virtual void Print(CopyMachine copyMachine)
         {
-            throw new InvalidOperationException();
+            copyMachine.State = new ErrorState();
         }
 
         public virtual void Stop(CopyMachine copyMachine)
         {
-            Console.WriteLine("Не штатное завершение работы");
-            copyMachine.State = new InitState();
+            copyMachine.State = new ErrorState();
         }
     }
 }

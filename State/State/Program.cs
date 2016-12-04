@@ -13,6 +13,7 @@ namespace State
             var copyMachine = new CopyMachine();
             copyMachine.PutMoney();
             copyMachine.ChooseDevice();
+            copyMachine.ChooseDocument();
             copyMachine.Print();
             copyMachine.Stop();
         }

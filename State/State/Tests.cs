@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using State.States;
 
 namespace State
 {
@@ -9,10 +10,9 @@ namespace State
         public void ThrowException()
         {
             var copyMachine = new CopyMachine();
-            Assert.Throws<InvalidOperationException>(() => copyMachine.Print());
-            copyMachine.PutMoney();
-            copyMachine.ChooseDevice();
-            Assert.Throws<InvalidOperationException>(() => copyMachine.PutMoney());
+            copyMachine.Print();
+            Assert.True(copyMachine.State is ErrorState);
+            Assert.Throws<InvalidOperationException>(() => copyMachine.ChooseDocument());
         }
 
         [Test]
@@ -23,6 +23,7 @@ namespace State
             {
                 copyMachine.PutMoney();
                 copyMachine.ChooseDevice();
+                copyMachine.ChooseDocument();
                 copyMachine.Print();
                 copyMachine.Stop();
             });

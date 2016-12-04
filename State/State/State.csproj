@@ -50,6 +50,8 @@
     <Compile Include="CopyMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="States\ChooseDeviceState.cs" />
+    <Compile Include="States\ChooseDocumentState.cs" />
+    <Compile Include="States\ErrorState.cs" />
     <Compile Include="States\InitState.cs" />
     <Compile Include="States\IState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

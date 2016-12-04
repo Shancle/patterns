@@ -11,6 +11,7 @@ namespace State
     {
         public IState State { get; set; }
         public IDevice CurrentDevice;
+        public IDocument CurrentDocument;
 
         public CopyMachine()
         {
@@ -27,6 +28,11 @@ namespace State
             State.ChooseDevice(this);
         }
 
+        public void ChooseDocument()
+        {
+            State.ChooseDocument(this);
+        }
+
         public void Print()
         {
             State.Print(this);
@@ -39,6 +45,11 @@ namespace State
     }
 
     public interface IDevice
+    {
+        IDocument GetDocument(string name);
+    }
+
+    public interface IDocument
     {
         string ReadInfo();
     }

@@ -11,8 +11,8 @@ namespace State.States
         public override void Print(CopyMachine copyMachine)
         {
             Console.WriteLine("Начало печати");
-            Console.WriteLine(copyMachine.CurrentDevice?.ReadInfo());
-            copyMachine.State = new ChooseDeviceState();
+            Console.WriteLine(copyMachine.CurrentDocument?.ReadInfo());
+            copyMachine.State = new ChooseDocumentState();
         }
     }
 }
